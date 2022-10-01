@@ -1,0 +1,42 @@
+<html> 
+<head> 
+<title>test my server</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+</head> 
+<body style="text-align: center">
+<h2>登录</h2>
+<form method="post" action="http://localhost:8080">
+
+  账号：<input type="text" id="username"/><br>
+
+  密码：<input type="text" id="password"/><br>
+<!--  <p>年龄：</p>
+  <select id="age">
+    <option value="18">18</option>
+    <option value="20">20</option>
+    <option value="22">22</option>
+  </select>-->
+    <br>
+  <input type="button" style="text-align: center" onclick="post()" value="提交">
+</form>
+
+<script type="text/javascript">
+
+  function post() {
+    $.ajax({
+      url: "http://localhost:8080",
+      type: "post",
+      // dataType: "json",
+      data: {"user": $("#username").val(), "age": $("#age").val(), "password": $("#password").val()},
+      success: function (data) {
+        console.log(data);
+      }
+    })
+  }
+
+</script>
+
+</body> 
+</html>
+ 
